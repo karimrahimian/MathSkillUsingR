@@ -42,7 +42,7 @@ getMinimum <-function(numbers){
 getMean <-function(numbers){
   sum <- 0 
   for(i in 1:length(numbers)){
-      sum =sum+numbers[i]
+    sum =sum+numbers[i]
   }
   return (sum/length(numbers)) 
 }
@@ -63,7 +63,6 @@ getMedianValue<-function(sortedArray){
   }
   return(medianValue)
 }
-
 getQuantile1<-function(sortedArray,medianIndex){
   if (isOdd(length(sortedArray))==TRUE){
     leftArray = sortedArray[1:medianIndex-1]
@@ -104,7 +103,7 @@ drawBox<-function(x,min,max,mean,q1,q2){
   maxX = c(x-boxWidth,x+boxWidth)
   maxY = c(max,max)
   lines(maxX,maxY, lwd=2, col="blue")
-
+  
   meanX = c(x-boxWidth,x+boxWidth)
   meanY = c(mean,mean)
   lines(meanX,meanY, lwd=2, col="red")
@@ -120,7 +119,7 @@ drawBox<-function(x,min,max,mean,q1,q2){
   buttomLineX = c(x,x)
   buttomLineY = c(min,q1)
   lines(buttomLineX,buttomLineY, lwd=2, col="blue")
- 
+  
   upperLineX = c(x,x)
   upperLineY = c(q2,max)
   lines(upperLineX,upperLineY, lwd=2, col="blue")   
@@ -143,31 +142,72 @@ drawBox<-function(x,min,max,mean,q1,q2){
 drawMultipleBox<-function(x,min,max,mean,q1,q2){
   boxWidth = 0.3
   plot.new()
-  plot.window(xlim=c(length(x)-2,length(x)+2), ylim=c(getMinimum(min)-1,getMaximum(max)+1))
+  plot.window(xlim=c(0,length(x)+1), ylim=c(getMinimum(min)-1,getMaximum(max)+1))
   axis(1)
   axis(2)
   for(i in 1:length(x)){
     minX = c(x[i]-boxWidth,x[i]+boxWidth)
     minY = c(min[i],min[i])
     lines(minX,minY, lwd=2, col="blue")
+    
+    maxX = c(x[i]-boxWidth,x[i]+boxWidth)
+    maxY = c(max[i],max[i])
+    lines(maxX,maxY, lwd=2, col="blue")
+    
+    meanX = c(x[i]-boxWidth,x[i]+boxWidth)
+    meanY = c(mean[i],mean[i])
+    lines(meanX,meanY, lwd=2, col="red")
+    
+    q1X = c(x[i]-boxWidth,x[i]+boxWidth)
+    q1Y = c(q1[i],q1[i])
+    lines(q1X,q1Y, lwd=2, col="blue")
+    
+    q2X = c(x[i]-boxWidth,x[i]+boxWidth)
+    q2Y = c(q2[i],q2[i])
+    lines(q2X,q2Y, lwd=2, col="blue")
+    
+    buttomLineX = c(x[i],x[i])
+    buttomLineY = c(min[i],q1[i])
+    lines(buttomLineX,buttomLineY, lwd=2, col="blue")
+    
+    upperLineX = c(x[i],x[i])
+    upperLineY = c(q2[i],max[i])
+    lines(upperLineX,upperLineY, lwd=2, col="blue")   
+    
+    leftLineX = c(x[i]-boxWidth,x[i]-boxWidth)
+    leftLineY = c(q1[i],q2[i])
+    lines(leftLineX,leftLineY, lwd=2, col="blue")   
+   
+    rightLineX = c(x[i]+boxWidth,x[i]+boxWidth)
+    rightLineY = c(q1[i],q2[i])
+    lines(rightLineX,rightLineY, lwd=2, col="blue")   
   }
-  
 
   title(xlab = "Group")
   title(ylab = "Y-axis value")
   
   box()
 }
+data <-matrix(rnorm(72),nrow=8,ncol=9)
 
-data = sample(1:100,30)
-sorted_data = sort(data)
-print(sorted_data)
-medianIndex = getMedianIndex(sorted_data)
-
-mean_data = getMean(sorted_data)
-q1 = getQuantile1(sorted_data,medianIndex)
-q2 = getQuantile2(sorted_data,medianIndex)
-mean = getMean(sorted_data)
-min = sorted_data[1]
-max = sorted_data[length(sorted_data)]
-drawBox(1,min,max,mean,q1,q2)
+mean=c()
+min=c()
+max=c()
+q1=c()
+q2=c()
+x= c()
+for(i in 1:ncol(data)){
+  data[,i] = sort(data[,i])
+  sorted_data = c(data[,i])
+  medianIndex = getMedianIndex(data[,i])
+  q1 =c(q1, getQuantile1(sorted_data,medianIndex))
+  
+  q2 =c(q2,getQuantile2(sorted_data,medianIndex))
+  mean =c(mean,getMean(sorted_data))
+  min = c(min, sorted_data[1])
+  max = c(max,sorted_data[length(sorted_data)])
+  x = c(x,i)
+}
+sortedIndex = order(mean)
+drawMultipleBox(x,min[sortedIndex],max[sortedIndex],mean[sortedIndex],q1[sortedIndex],q2[sortedIndex])
+  
