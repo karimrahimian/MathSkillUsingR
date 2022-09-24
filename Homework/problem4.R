@@ -94,7 +94,7 @@ getQuantile2<-function(sortedArray,medianIndex){
 drawBox<-function(x,min,max,mean,q1,q2){
   boxWidth = 0.3
   plot.new()
-  plot.window(xlim=c(length(x)-1,length(x)+1), ylim=c(min-1,max+1))
+  plot.window(xlim=c(length(x)-2,length(x)+2), ylim=c(min-1,max+1))
   axis(1)
   axis(2)
   minX = c(x-boxWidth,x+boxWidth)
@@ -143,7 +143,7 @@ drawBox<-function(x,min,max,mean,q1,q2){
 
 
 data = sample(1:100,30)
-sorted_data = bubbleSort(data)
+sorted_data = sort(data)
 print(sorted_data)
 medianIndex = getMedianIndex(sorted_data)
 mean_data = getMean(sorted_data)
