@@ -1,19 +1,23 @@
-TestChars <- function(encoding = "ISOLatin1", ...)
-{
-    pdf(encoding = encoding, ...)
-    par(pty = "s")
-    plot(c(-1,16), c(-1,16), type = "n", xlab = "", ylab = "",
-         xaxs = "i", yaxs = "i")
-         title(paste("Centred chars in encoding", encoding))
-    grid(17, 17, lty = 1)
-    for(i in c(32:255)) {
-        x <- i %% 16
-        y <- i %/% 16
-        points(x, y, pch = i)
-    }
-    dev.off()
-}
-## there will be many warnings.
-TestChars("ISOLatin2")
-## this does not view properly in older viewers.
-TestChars("ISOLatin2", family = "URWHelvetica")
+plot.new()
+
+plot.window(xlim=c(0,2), ylim=c(0,10))
+
+axis(1)
+
+axis(2)
+
+x = c(0.0, 0.5,0.5, 1.5, 2.0)
+
+y =  c(0.0, 0, 6, 8.2, 10. )
+
+lines(x,y, lwd=2, col="red")
+x = c(1, 0.5,0.5, 1.5, 2.0)
+
+y =  c(0.0, 0, 6, 8.2, 10. )
+lines(x,y, lwd=2, col="blue")
+
+title(xlab = "X-axis value")
+
+title(ylab = "Y-axis value")
+
+box()
