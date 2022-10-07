@@ -28,7 +28,7 @@ calcAverage <-function(dataList){
   return (average)
 }
 
-dataList = c(1,2,30,4,5,2)
+dataList = c(1,2,30,4,5,2,-1)
 
 maximum = getMax(dataList)
 minimum = getMin(dataList)
