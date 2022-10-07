@@ -1,11 +1,16 @@
 isOdd <- function(number){
   remainder = number %% 2
-  if (remainder == 0)
-    return('Your number is even')
-  else
-    return('Your number is odd')
+  if (remainder == 1){
+    return(TRUE)
+  }else {
+    return(FALSE)
+  }
 }
 stringInput = readline(prompt='Enter your number:')
 number = as.integer(stringInput)
 result = isOdd(number)
-print(result)
+if (result == TRUE){
+  print('your number is Odd')
+}else {
+   print('Your number is Even')
+}
