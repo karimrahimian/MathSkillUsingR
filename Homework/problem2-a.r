@@ -3,7 +3,8 @@ isPrime <- function(number){
   half_number = number / 2
   if (number == 2)
     return (TRUE)
-  for (i in 2:half_number){
+  roots = sqrt(number)
+  for (i in 2:roots){
     remainder = number %% i
     if (remainder == 0){
       is_prime = FALSE

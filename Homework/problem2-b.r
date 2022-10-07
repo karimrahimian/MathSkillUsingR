@@ -3,7 +3,8 @@ isPrime <- function(number){
   half_number = number / 2
   if (number == 2)
     return (TRUE)
-  for (i in 2:half_number){
+  roots = sqrt(number)
+  for (i in 2:roots){
     remainder = number %% i
     if (remainder == 0){
       is_prime = FALSE
@@ -11,16 +12,24 @@ isPrime <- function(number){
   }
   return (is_prime)
 }
+createCSV<-function(primes){
+  file.create("primes.csv")
+  write.table(x = primes, 
+           file = "primes.csv")
 
-printAllPrime<-function(number){
+}
+getPrimes<-function(number){
+  primes = c()
   for (i in 2:number){
     if (isPrime(i)==TRUE){
-      print(i)
+      primes=c(primes,i)
     }
   }
+  return(primes)
 }
 
-stringInput = readline(prompt='Enter your number:')
-number = as.integer(stringInput)
-printAllPrime(number)
+#stringInput = readline(prompt='Enter your number:')
+number = 100000
+primes = getPrimes(number)
+createCSV(primes)
 

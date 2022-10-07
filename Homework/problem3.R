@@ -32,9 +32,10 @@ plotChart<-function(maxK,probs){
   axis(2)
   x = 1:maxK
   y =  probs
-  lines(x,y, lwd=2, col="red")
+
   plot(x,y, lwd=2, col="blue")
-  title(xlab = "X-axis value")
+  
+  lines(c(0,100),c(0.5,0.5), lwd=2, col="red",lty='dotted')
   
 }
 
