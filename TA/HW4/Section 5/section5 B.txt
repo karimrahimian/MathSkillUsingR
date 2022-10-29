@@ -1,0 +1,45 @@
+Question 5-1
+What is the length of this list?
+list(alpha = 1, list(beta = 2, gamma = 3, delta = 4), eta = NULL)
+
+
+	The length of this list is 3
+	
+	
+Question 5-2
+Where might you find a pairlist being used?
+	for function arguments. 
+	Arguments function are the pair values with two part (name and value).
+	So the pair list is a good choice for them
+	
+	
+Question 5-3
+Name as many ways as you can think of to create a subset of a data frame.
+	t <- data.frame(
+	     x = letters[1:5],
+	     y = rnorm(5),
+	     z = runif(5) > 0.5))
+	     
+	Using $ is good idea for select one columnor example for selecting x:
+	t$x
+	
+	for select subset of on column  :
+	t$x[2:3]
+	
+	
+	another method is using indexing :
+	t[2:3,3]
+Question 5-4
+
+How would you create a data frame where the column names weren’t unique, valid
+variable names?
+	It is possible to add a number after the column names
+
+
+Question 5-5
+Which function would you use to append one data frame to another?	
+	If they have a shared name, it is possible to use merge function
+	cbind and rbind are two another important function to append one dataframe work to another. 
+
+
+

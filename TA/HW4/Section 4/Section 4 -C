@@ -1,0 +1,52 @@
+Exercise 4-1
+The nth triangular number is given by n * (n + 1) / 2. Create a sequence of the
+first 20 triangular numbers. R has a built-in constant, letters, that contains the
+lowercase letters of the Roman alphabet. Name the elements of the vector that you
+just created with the first 20 letters of the alphabet. Select the triangular numbers
+where the name is a vowel. [10]
+
+	>triangle =  choose(seq(20),2)
+	> names(triangle) = letters[1:20]
+
+	> names[c('a','e','i','o')]
+	> triangle[c('a','e','i','o')]
+	  a   e   i   o 
+	  0  10  36 105 
+
+
+Exercise 4-2
+The diag function has several uses, one of which is to take a vector as its input and
+create a square matrix with that vector on the diagonal. Create a 21-by-21 matrix
+with the sequence 10 to 0 to 11 (i.e., 11, 10, … , 1, 0, 1, …, 11). [5]
+
+	> d= c(seq.int(11,0),seq.int(1,11))
+	> b = diag(d,21,21)
+
+Exercise 4-3
+By passing two extra arguments to diag, you can specify the dimensions of the
+output. Create a 20-by-21 matrix with ones on the main diagonal. Now add a row
+of zeros above this to create a 21-by-21 square matrix, where the ones are offset a
+row below the main diagonal.
+	> x= diag(1,20,21)
+	> r = integer(21)
+	> t = rbind(r,x)
+	> View(t)
+
+
+
+Create another matrix with the ones offset one up from the diagonal.
+Add these two matrices together, then add the answer from Exercise 4-2. The re‐
+sultant matrix is called a Wilkinson matrix.
+
+	> x= diag(1,20,21)
+	> r = integer(21)
+	> t = rbind(r,x)
+	> x1 = x
+	> Wilkinson = x+x1+b     # b is coming from exersise 4-2
+
+
+
+The eigen function calculates eigenvalues and eigenvectors of a matrix. Calculate
+the eigenvalues for your Wilkinson matrix. What do you notice about them? [20]
+	The eigen value is the same as the main diagonal of b matrix
+

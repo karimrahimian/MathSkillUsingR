@@ -1,0 +1,29 @@
+Exercise 3-2
+	Find the class, type, mode, and storage mode of the following values: Inf, NA, NaN ?
+	class(Inf)
+	[1] "numeric"
+	> class(Na)
+	Error: object 'Na' not found
+	> class(NA)
+	[1] "logical"
+	> class(NaN)
+	[1] "numeric"
+
+
+Exercise 3-2
+Randomly generate 1,000 pets, from the choices “dog,” “cat,” “hamster,” and “gold‐
+fish,” with equal probability of each being chosen. Display the first few values of the
+resultant variable, and count the number of each type of pet. [5]
+
+> animals = sample(c("cat","dog","fish","hamesfer","gold Fish"),1000,replace = TRUE)
+> animals[1:5]
+[1] "dog"       "cat"       "gold Fish" "gold Fish" "fish"     
+> fac = factor(animals)
+> summary(fac)
+      cat       dog      fish gold Fish  hamesfer 
+      193       213       211       198       185 
+
+Exercise 3-3
+Create some variables named after vegetables. List the names of all the variables in
+the user workspace that contain the letter “a.” [5]
+

@@ -1,0 +1,424 @@
+(No selection)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+Loading required package: maftools
+> 8.5:4.5
+[1] 8.5 7.5 6.5 5.5 4.5
+> c(1,1:3,c(5,8),13)
+[1]  1  1  2  3  5  8 13
+> vector("numeric",5)
+[1] 0 0 0 0 0
+> vector("complex",5)
+[1] 0+0i 0+0i 0+0i 0+0i 0+0i
+> vetor("logical",5)
+Error in vetor("logical", 5) : could not find function "vetor"
+> vector("logical",5)
+[1] FALSE FALSE FALSE FALSE FALSE
+> vector("character",5)
+[1] "" "" "" "" ""
+> vector("list",5)
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+> numeric(5)
+[1] 0 0 0 0 0
+> complex(5)
+[1] 0+0i 0+0i 0+0i 0+0i 0+0i
+> logical(5)
+[1] FALSE FALSE FALSE FALSE FALSE
+> character(5)
+[1] "" "" "" "" ""
+> seq.int(3,12)
+ [1]  3  4  5  6  7  8  9 10 11 12
+> seq.int(0.1,0.01,-0.01)
+ [1] 0.10 0.09 0.08 0.07 0.06 0.05 0.04 0.03 0.02 0.01
+> n=0
+> 1:n
+[1] 1 0
+> seq_len(n)
+integer(0)
+> pp <- c("Peter", "Piper", "picked", "a", "peck", "of", "pickled", "peppers")
+> for(i in seq_along(pp)) print(pp[i])
+[1] "Peter"
+[1] "Piper"
+[1] "picked"
+[1] "a"
+[1] "peck"
+[1] "of"
+[1] "pickled"
+[1] "peppers"
+> length(1:5)
+[1] 5
+> length(c(TRUE,FALSE,NA))
+[1] 3
+> sn <- c("Sheena", "leads", "Sheila", "needs")
+> length(sn)
+[1] 4
+> nchar(sn)
+[1] 6 5 6 5
+> poincare <- c(1, 0, 0, 0, 2, 0, 2, 0)
+> length(poincare) <- 3
+> pointcare
+Error: object 'pointcare' not found
+> poincare
+[1] 1 0 0
+> length(poincare) <- 8
+> poincare
+[1]  1  0  0 NA NA NA NA NA
+> c(apple = 1, banana = 2, "kiwi fruit" = 3, 4)
+     apple     banana kiwi fruit            
+         1          2          3          4 
+> x <- 1:4
+> names(x) <- c("apple", "bananas", "kiwi fruit", "")
+> x
+     apple    bananas kiwi fruit            
+         1          2          3          4 
+> names(x)
+[1] "apple"      "bananas"    "kiwi fruit" ""          
+> names(1:4)
+NULL
+> x= (1:5)^2
+> x[c(1,3,5)]
+[1]  1  9 25
+> x[c(-2,-4)]
+[1]  1  9 25
+> x[c(TRUE, FALSE, TRUE, FALSE, TRUE)]
+[1]  1  9 25
+> names(x) <- c("one", "four", "nine", "sixteen", "twenty five")
+> x[c("one", "nine", "twenty five")]
+        one        nine twenty five 
+          1           9          25 
+> x[c(1, -1)]
+Error in x[c(1, -1)] : only 0's may be mixed with negative subscripts
+> x[c(1, NA, 5)]
+        one        <NA> twenty five 
+          1          NA          25 
+> x[c(TRUE, FALSE, NA, FALSE, TRUE)]
+        one        <NA> twenty five 
+          1          NA          25 
+> x[1.9]
+one 
+  1 
+> x[-1.9]
+       four        nine     sixteen twenty five 
+          4           9          16          25 
+> which(x>10)
+    sixteen twenty five 
+          4           5 
+> which.min(x)
+one 
+  1 
+> which.max(x)
+twenty five 
+          5 
+> 1:5+1
+[1] 2 3 4 5 6
+> 1+1:5
+[1] 2 3 4 5 6
+> 1:5+1:15
+ [1]  2  4  6  8 10  7  9 11 13 15 12 14 16 18 20
+> 1:5+1:7
+[1]  2  4  6  8 10  7  9
+Warning message:
+In 1:5 + 1:7 :
+  longer object length is not a multiple of shorter object length
+> rep(1:5,3)
+ [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+> rep(1:5,each=3)
+ [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
+> rep(1:5,times1:5)
+Error: object 'times1' not found
+> rep(1:5,times=1:5)
+ [1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5
+> rep(1:5,length.out=7)
+[1] 1 2 3 4 5 1 2
+> rep.int(1:5,3)
+ [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+> rep_len(1:5,13)
+ [1] 1 2 3 4 5 1 2 3 4 5 1 2 3
+> (three_d_array <- array(
++     1:24,
++     dim = c(4, 3, 2),
++     dimnames = list(
++         c("one", "two", "three", "four"),
++         c("ein", "zwei", "drei"),
++         c("un", "deux")
++     )
++ ))
+, , un
+
+      ein zwei drei
+one     1    5    9
+two     2    6   10
+three   3    7   11
+four    4    8   12
+
+, , deux
+
+      ein zwei drei
+one    13   17   21
+two    14   18   22
+three  15   19   23
+four   16   20   24
+
+> (a_matrix <- matrix(
++     1:12,
++     nrow = 4,
++     #ncol = 3 works the same
++     dimnames = list(
++         c("one", "two", "three", "four"),
++         c("ein", "zwei", "drei")
++     )
++ ))
+      ein zwei drei
+one     1    5    9
+two     2    6   10
+three   3    7   11
+four    4    8   12
+> (two_d_array <- array(
++     1:12,
++     dim = c(4, 3),
++     dimnames = list(
++         c("one", "two", "three", "four"),
++         c("ein", "zwei", "drei")
++     )
++ ))
+      ein zwei drei
+one     1    5    9
+two     2    6   10
+three   3    7   11
+four    4    8   12
+> class(two_d_array)
+[1] "matrix" "array" 
+> matrix(
++     1:12,
++     nrow = 4,
++     byrow = TRUE,
++     dimnames = list(
++         c("one", "two", "three", "four"),
++         c("ein", "zwei", "drei")
++     )
++ )
+      ein zwei drei
+one     1    2    3
+two     4    5    6
+three   7    8    9
+four   10   11   12
+> dim(three_d_array)
+[1] 4 3 2
+> dim(a_matrix)
+[1] 4 3
+> nrow(a_matrix)
+[1] 4
+> ncol(a_matrix)
+[1] 3
+> nrow(three_d_array)
+[1] 4
+> ncol(three_d_array)
+[1] 3
+> length(three_d_array)
+[1] 24
+> length(a_matrix)
+[1] 12
+> dim(a_matrix) <- c(6, 2)
+> identical(nrow(a_matrix), NROW(a_matrix))
+[1] TRUE
+> identical(ncol(a_matrix), NCOL(a_matrix))
+[1] TRUE
+> recaman <- c(0, 1, 3, 6, 2, 7, 13, 20)
+> nrow(recaman)
+NULL
+> NROW(recaman)
+[1] 8
+> ncil(recaman)
+Error in ncil(recaman) : could not find function "ncil"
+> ncol(recaman)
+NULL
+> NCOL(recaman)
+[1] 1
+> dim(recaman)
+NULL
+> rownames(a_matrix)
+NULL
+> colnames(a_matrix)
+NULL
+> dimnames(a_matrix)
+NULL
+> rownames(three_d_array)
+[1] "one"   "two"   "three" "four" 
+> colnames(three_d_array)
+[1] "ein"  "zwei" "drei"
+> colnames(three_d_array)
+[1] "ein"  "zwei" "drei"
+> dimnames(three_d_array)
+[[1]]
+[1] "one"   "two"   "three" "four" 
+
+[[2]]
+[1] "ein"  "zwei" "drei"
+
+[[3]]
+[1] "un"   "deux"
+
+> dimnames(three_d_array)
+[[1]]
+[1] "one"   "two"   "three" "four" 
+
+[[2]]
+[1] "ein"  "zwei" "drei"
+
+[[3]]
+[1] "un"   "deux"
+
+> a_matrix[1, c("zwei", "drei")]
+Error in a_matrix[1, c("zwei", "drei")] : 
+  no 'dimnames' attribute for array
+> (a_matrix <- matrix(
++     1:12,
++     nrow = 4,
++     #ncol = 3 works the same
++     dimnames = list(
++         c("one", "two", "three", "four"),
++         c("ein", "zwei", "drei")
++     )
++ ))
+      ein zwei drei
+one     1    5    9
+two     2    6   10
+three   3    7   11
+four    4    8   12
+> a_matrix[1, c("zwei", "drei")]
+zwei drei 
+   5    9 
+> a_matrix[1, ]
+ ein zwei drei 
+   1    5    9 
+> a_matrix[, c("zwei", "drei")]
+      zwei drei
+one      5    9
+two      6   10
+three    7   11
+four     8   12
+> (another_matrix <- matrix(
++     seq.int(2, 24, 2),
++     nrow = 4,
++     dimnames = list(
++         c("five", "six", "seven", "eight"),
++         c("vier", "funf", "sechs")
++     )
++ ))
+      vier funf sechs
+five     2   10    18
+six      4   12    20
+seven    6   14    22
+eight    8   16    24
+> c(a_matrix, another_matrix)
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12  2  4  6  8 10 12 14 16 18 20 22 24
+> cbind(a_matrix, another_matrix)
+      ein zwei drei vier funf sechs
+one     1    5    9    2   10    18
+two     2    6   10    4   12    20
+three   3    7   11    6   14    22
+four    4    8   12    8   16    24
+> rbind(a_matrix, another_matrix)
+      ein zwei drei
+one     1    5    9
+two     2    6   10
+three   3    7   11
+four    4    8   12
+five    2   10   18
+six     4   12   20
+seven   6   14   22
+eight   8   16   24
+> a_matrix + another_matrix
+      ein zwei drei
+one     3   15   27
+two     6   18   30
+three   9   21   33
+four   12   24   36
+> a_matrix * another_matrix
+      ein zwei drei
+one     2   50  162
+two     8   72  200
+three  18   98  242
+four   32  128  288
+> (another_matrix <- matrix(1:12, nrow = 2))
+     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    1    3    5    7    9   11
+[2,]    2    4    6    8   10   12
+> a_matrix + another_matrix
+Error in a_matrix + another_matrix : non-conformable arrays
+> a_matrix + another_matrix
+Error in a_matrix + another_matrix : non-conformable arrays
+> t(a_matrix)
+     one two three four
+ein    1   2     3    4
+zwei   5   6     7    8
+drei   9  10    11   12
+> a_matrix %*% t(a_matrix)
+      one two three four
+one   107 122   137  152
+two   122 140   158  176
+three 137 158   179  200
+four  152 176   200  224
+> 1:3 %o% 4:6
+     [,1] [,2] [,3]
+[1,]    4    5    6
+[2,]    8   10   12
+[3,]   12   15   18
+> outer(1:3, 4:6)
+     [,1] [,2] [,3]
+[1,]    4    5    6
+[2,]    8   10   12
+[3,]   12   15   18
+> (m <- matrix(c(1, 0, 1, 5, -3, 1, 2, 4, 7), nrow = 3))
+     [,1] [,2] [,3]
+[1,]    1    5    2
+[2,]    0   -3    4
+[3,]    1    1    7
+> m^-1
+     [,1]       [,2]      [,3]
+[1,]    1  0.2000000 0.5000000
+[2,]  Inf -0.3333333 0.2500000
+[3,]    1  1.0000000 0.1428571
+> (inverse_of_m <- solve(m))
+     [,1] [,2] [,3]
+[1,]  -25  -33   26
+[2,]    4    5   -4
+[3,]    3    4   -3
+> m %*% inverse_of_m
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1

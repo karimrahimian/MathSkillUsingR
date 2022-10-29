@@ -1,0 +1,14 @@
+What are the names of the three built-in classes of numbers?
+
+	numeric, complex, integer
+
+What function would you call to find out the number of levels of a factor?
+	nlevels
+
+How might you convert the string “6.283185” to a number?
+	as.numeric('6.283185')
+
+Name at least three functions for inspecting the contents of a variable.
+	View, Edit, fix
+How would you remove all the variables in the user workspace?
+
