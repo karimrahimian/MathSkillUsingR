@@ -63,7 +63,6 @@ getMedianValue<-function(sortedArray){
   }
   return(medianValue)
 }
-
 getQuantile1<-function(sortedArray,medianIndex){
   if (isOdd(length(sortedArray))==TRUE){
     leftArray = sortedArray[1:medianIndex-1]
