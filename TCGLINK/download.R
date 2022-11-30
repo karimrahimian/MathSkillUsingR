@@ -87,8 +87,7 @@ drawOncoplot<-function(cancer){
   mafData = readRDS(rdataPath)
   laml = mafData
   
-  outputPathPdf = paste0(rootDir,"/outputs/",cancer,"/",
-                         "OncoPlot.pdf")
+  outputPathPdf = paste0(rootDir,"/outputs/",cancer,"/","OncoPlot.pdf")
   pdf(outputPathPdf)
   oncoplot(maf = laml, draw_titv = TRUE)
   plotmafSummary(maf = laml, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)

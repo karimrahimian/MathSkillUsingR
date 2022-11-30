@@ -1,3 +1,0 @@
-id	filename	md5	size	state
-85393a18-1dfb-450e-923f-42216c9b5554	85393a18-1dfb-450e-923f-42216c9b5554/e0d8635c-a994-43cf-85c6-85a344f71d54.wxs.aliquot_ensemble_masked.maf.gz	e71ae3d057295a4973d694acf1509c01	11491	validated
-\N	85393a18-1dfb-450e-923f-42216c9b5554/annotations.txt	886c73b346f7d1d8bc568447fc0ee8b5	301	\N
